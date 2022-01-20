@@ -14,6 +14,8 @@ Enter prise
 
 具體差別在哪，我也不知道  
 
+[參考網站](https://www.kasten.io/product/#k10-editions "link")  
+
 
 ### Install Note   
 紀錄安裝過程中，容易遇到的問題  

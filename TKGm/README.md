@@ -22,12 +22,8 @@ kubectl的context指向要裝Kasten的叢集
 如果叢集內存在CSI的供應商(如Tanzu,Redhat OKD)  
 建議使用已下工具進行驗證是否符合kasten需求  
 ```
-curl -s https://docs.kasten.io/tools/k10_primer.sh  | bash  
-curl -s https://docs.kasten.io/tools/k10_primer.sh  | bash /dev/stdin -s ${STORAGE_CLASS}  
-```
-
-
-```
 helm repo add kasten https://charts.kasten.io/
 curl https://docs.kasten.io/tools/k10_primer.sh | bash
-```
+curl -s https://docs.kasten.io/tools/k10_primer.sh  | bash  
+curl -s https://docs.kasten.io/tools/k10_primer.sh  | bash /dev/stdin -s ${STORAGE_CLASS}  
+```  

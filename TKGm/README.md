@@ -30,5 +30,4 @@ curl -s https://docs.kasten.io/tools/k10_primer.sh  | bash /dev/stdin -s ${STORA
 ```
 helm repo add kasten https://charts.kasten.io/
 curl https://docs.kasten.io/tools/k10_primer.sh | bash
-curl https://docs.kasten.io/tools/k10_primer.sh | bash /dev/stdin -i repo.example.com/k10tools:|version|
 ```

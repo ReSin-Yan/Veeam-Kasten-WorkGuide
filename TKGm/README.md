@@ -75,6 +75,7 @@ helm repo add kasten https://charts.kasten.io --force-update && helm repo update
 創建命名空間kasten-io  
 ```  
 kubectl create ns kasten-io
+kubectl create ns demo
 ```  
 
 安裝metalLB(L4工具)跟contour(L7 ingress工具)  

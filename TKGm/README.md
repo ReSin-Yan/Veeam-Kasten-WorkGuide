@@ -12,8 +12,26 @@
 
 ### 安裝步驟  
 
-#### Pre-Flight Checks  
+#### 環境準備  
 
+環境更新及安裝基本套件  
+```
+sudo apt-get update && sudo apt-get -y upgrade
+sudo apt-get -y install vim build-essential curl ssh
+sudo apt-get install net-tools default-jdk git
+sudo apt install apache2-utils  
+```
+安裝kubernetes套件  
+```
+sudo apt-get update && sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo  apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" >> kubernetes.list
+sudo cp kubernetes.list /etc/apt/sources.list.d/
+rm kubernetes.list
+sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubelet=1.21.0-00 kubeadm=1.21.0-00 kubectl=1.21.0-00
+```
 helm安裝  
 ```
 sudo apt-get install -y curl
@@ -21,6 +39,10 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scr
 chmod 700 get_helm.sh
 ./get_helm.sh
 ```
+
+#### Pre-Flight Checks  
+
+
 kubectl的context指向要裝Kasten的叢集  
 需要有預設的storageClass  
 

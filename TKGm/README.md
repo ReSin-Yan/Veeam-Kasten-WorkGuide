@@ -24,6 +24,5 @@ kubectl的context指向要裝Kasten的叢集
 ```
 helm repo add kasten https://charts.kasten.io/
 curl https://docs.kasten.io/tools/k10_primer.sh | bash
-curl -s https://docs.kasten.io/tools/k10_primer.sh  | bash  
 curl -s https://docs.kasten.io/tools/k10_primer.sh  | bash /dev/stdin -s ${STORAGE_CLASS}  
 ```  

@@ -56,5 +56,5 @@ kubectl create ns kasten-io
 
 接著, 透過以下指令執行 Kasten K10 的安裝動作, 這些參數會針對 Kasten 與指定的 namespace 啟動 Kanister Sidecar 功能  
 ``` 
-helm install k10 kasten/k10 --namespace=kasten-io --set inget ingress.class=contour --set ingress.host=kastendemo5.com --set auth.basicAuth.enabled=true --setsswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0'
+helm install k10 kasten/k10 --namespace=kasten-io --set inget ingress.class=contour --set ingress.host=kastendemo5.com --set auth.basicAuth.enabled=true --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0'
 ``` 

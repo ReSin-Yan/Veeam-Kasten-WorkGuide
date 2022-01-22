@@ -1,16 +1,14 @@
 # TKGm Kasten 安裝  
 
 ### 環境簡介  
-TKGm 版本:1.4.1  
-TKC  版本:1.21.1  
 
  | 套件名稱 | 版本  |
 |-------|-------|
 | TKGm | 1.4.1 |  
 | TKC | 1.21.1 |  
 | kasten | 4.5.7 |  
-| L4工具 | 安裝參考 |  
-| L7工具 | 安裝參考 |  
+| L4工具 | [metalLB](https://github.com/ReSin-Yan/kuberenetes-base/blob/main/k8stools/service/loadbalancetools/installMetallb.sh "link")   |  
+| L7工具 | [contour](https://github.com/ReSin-Yan/kuberenetes-base/blob/main/k8stools/service/ingress/install.sh |  
 
 ### 安裝步驟  
 

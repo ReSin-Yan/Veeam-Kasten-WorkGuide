@@ -4,6 +4,13 @@
 TKGm 版本:1.4.1  
 TKC  版本:1.21.1  
 
+ | 套件名稱 | 版本  |
+|-------|-------|
+| TKGm | 1.4.1 |  
+| TKC | 1.21.1 |  
+| kasten | 4.5.7 |  
+| L4工具 | 安裝參考 |  
+| L7工具 | 安裝參考 |  
 
 ### 安裝步驟  
 
@@ -52,9 +59,28 @@ kubectl create ns kasten-io
 
 安裝metalLB(L4工具)跟contour(L7 ingress工具)  
 
-產生
+產生htpasswd(需要預先安裝)  
+```
+sudo apt install apache2-utils
+mkdir htpasswd 
+cd htpasswd/
+htpasswd -c /home/user/htpasswd/.htpasswd kasten  
+#輸入密碼之後
+cat .htpasswd  
+```
+
 
 接著, 透過以下指令執行 Kasten K10 的安裝動作, 這些參數會針對 Kasten 與指定的 namespace 啟動 Kanister Sidecar 功能  
+並且使用L7+htpasswd的功能  
+ | 參數名稱 | 參數  |
+|-------|-------|
+| --namespace | kasten-io |  
+| ingress.create | true |  
+| ingress.class | contour |  
+| ingress.host | kastendemo5.com(設為你的需要) |  
+| auth.basicAuth.enabled | true |  
+| auth.basicAuth.htpasswd | htpasswd產生的值 |  
+
 ``` 
-helm install k10 kasten/k10 --namespace=kasten-io --set inget ingress.class=contour --set ingress.host=kastendemo5.com --set auth.basicAuth.enabled=true --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0'
+helm install k10 kasten/k10 --namespace=kasten-io --set ingress.create=true ingress.class=contour --set ingress.host=kastendemo5.com --set auth.basicAuth.enabled=true --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0'
 ``` 

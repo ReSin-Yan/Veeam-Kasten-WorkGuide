@@ -79,7 +79,7 @@ kubectl create ns kasten-io
 
 安裝metalLB(L4工具)跟contour(L7 ingress工具)  
 [metalLB](https://github.com/ReSin-Yan/kuberenetes-base/blob/main/k8stools/service/loadbalancetools/installMetallb.sh "link")  
-[metalLB](https://github.com/ReSin-Yan/kuberenetes-base/blob/main/k8stools/service/loadbalancetools/installMetallb.sh "link")  
+[contour](https://github.com/ReSin-Yan/kuberenetes-base/blob/main/k8stools/service/ingress/install.sh "link")
 
 產生htpasswd(需要預先安裝)  
 ```

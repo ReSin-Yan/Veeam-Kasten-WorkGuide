@@ -8,7 +8,7 @@
 | TKC | 1.21.1 |  
 | kasten | 4.5.7 |  
 | L4工具 | [metalLB](https://github.com/ReSin-Yan/kuberenetes-base/blob/main/k8stools/service/loadbalancetools/installMetallb.sh "link")   |  
-| L7工具 | [contour](https://github.com/ReSin-Yan/kuberenetes-base/blob/main/k8stools/service/ingress/install.sh |  
+| L7工具 | [contour](https://github.com/ReSin-Yan/kuberenetes-base/blob/main/k8stools/service/ingress/install.sh "link")  |  
 
 ### 安裝步驟  
 

@@ -105,5 +105,5 @@ cat .htpasswd
 | auth.basicAuth.htpasswd | htpasswd產生的值 |  
 
 ``` 
-helm install k10 kasten/k10 --namespace=kasten-io --set ingress.create=true ingress.class=contour --set ingress.host=kastendemo5.com --set auth.basicAuth.enabled=true --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0' --set injectKanisterSidecar.enabled=true --set-string injectKanisterSidecar.namespaceSelector.matchLabels.k10/injectKanisterSidecar=true 
+helm install k10 kasten/k10 --namespace=kasten-io --set ingress.create=true --set ingress.class=contour --set ingress.host=kastendemo5.com --set auth.basicAuth.enabled=true --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0' --set injectKanisterSidecar.enabled=true --set-string injectKanisterSidecar.namespaceSelector.matchLabels.k10/injectKanisterSidecar=true 
 ``` 

@@ -12,8 +12,6 @@ Free
 Enterprise Trial  
 Enter prise  
 
-具體差別在哪，我也不知道  
-
 [參考網站](https://www.kasten.io/product/#k10-editions "link")  
 
 

@@ -68,7 +68,7 @@ Kasten備份出來的Config會放到由CSI產生的volume內(預設是20GB)，PO
 如果CSI本身有支援extend，那就可以在之後更改，如果沒有，就必須要在一開始就設定好大小  
 ```
 --set global.persistence.catalog.size=200Gi 
---set global.persistence.job.size=200Gi
+--set global.persistence.jobs.size=200Gi
 --set global.persistence.logging.size=200Gi
 ```
 

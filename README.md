@@ -121,7 +121,6 @@ cat .htpasswd
 ```
 --set auth.basicAuth.enabled=true 
 --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0'
-
 ```
 
 以下參數主要為設定AirGapped的情境下，repo的位置，如果非安裝包的路徑，只需要修改[kastenrepo.veeam.com/kasten]，其他都是必須  
@@ -141,7 +140,7 @@ Kasten備份出來的Config會放到由CSI產生的volume內(預設是20GB)，PO
 
 
 ### 參考安裝指令參考  
-環境有L4  
+環境有L4且對外  
 
 ```
 helm install k10 kasten/k10 --namespace=kasten-io \
@@ -149,6 +148,11 @@ helm install k10 kasten/k10 --namespace=kasten-io \
 --set-string injectKanisterSidecar.namespaceSelector.matchLabels.k10/injectKanisterSidecar=true \
 --set global.persistence.catalog.size=50Gi \
 --set global.persistence.job.size=50Gi \
---set global.persistence.logging.size=50Gi
+--set global.persistence.logging.size=50Gi \
+--set externalGateway.create=true  \
+--set global.persistence.storageClass=nvaiestorage \
+--set auth.basicAuth.enabled=true \
+--set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0' \
+--set externalGateway.create=true  
 ```
 之後使用tunnel的方式導向連線端  

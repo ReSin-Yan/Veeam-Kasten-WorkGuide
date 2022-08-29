@@ -17,19 +17,38 @@ Enter prise
 
 ### 安裝步驟   
   
+## Linux Clinet 準備  
 
-## Kubernetes 操作  
+## Kubernetes 操作及環境準備    
+
+確認Kuberentes服務  
+已下指令是Tanzu環境登入的指令  
+如果是其它Kubernetes的平台，需要確認能夠正常的執行Kubernetes的相關操作  
+可以跳轉到下一章節  
 
 登入到Taznu環境  
 ```
-export KUBECTL_VSPHERE_PASSWORD=1qaz@WSX
-kubectl vsphere login --insecure-skip-tls-verify --server 172.18.17.22 --vsphere-username ntust@vsphere.local --tanzu-kubernetes-cluster-name ntust-tkc[輸入編號]
-kubectl config use-context ntust-tkc[輸入編號]
+export KUBECTL_VSPHERE_PASSWORD=P@ssw0rd
+kubectl vsphere login --server=172.18.17.22 --insecure-skip-tls-verify  --vsphere-username administrator@vsphere.local --tanzu-kubernetes-cluster-name  [輸入姓名]-tkc1
+kubectl vsphere login --server=172.18.17.22 --insecure-skip-tls-verify  --vsphere-username administrator@vsphere.local --tanzu-kubernetes-cluster-name  [輸入姓名]-tkc2
+kubectl config use-context [輸入姓名]
 ```
 
-將此專案透過git下載  
+下載gcallowroot yaml(TKC需要)  
 ```
 cd 
 git clone https://github.com/ReSin-Yan/NTUSTCourse
 cd NTUSTCourse/Kubernetes
 kubectl apply -f gcallowroot.yaml  
+```
+
+安裝NFS sub-dir(如有Kubernetes本身已有StorageClass也建議設定)  
+
+```
+cd 
+git clone https://github.com/ReSin-Yan/NTUSTCourse
+cd NTUSTCourse/Kubernetes
+kubectl apply -f gcallowroot.yaml  
+```
+
+

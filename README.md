@@ -41,6 +41,7 @@ sudo chmod -R 777 /home/ubuntu/nfsshare/
 ```
 編輯/etc/exports  
 ```
+sudo vim /etc/exports  
 #新增以下
 /home/ubuntu/nfsshare/    *(rw,sync,no_root_squash,no_all_squash)
 ```
@@ -186,7 +187,6 @@ helm install k10 kasten/k10 --namespace=kasten-io \
 --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0' \
 --set externalGateway.create=true  
 ```
-之後使用tunnel的方式導向連線端  
 
 
 建立PV  

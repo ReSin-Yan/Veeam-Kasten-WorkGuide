@@ -187,3 +187,43 @@ helm install k10 kasten/k10 --namespace=kasten-io \
 --set externalGateway.create=true  
 ```
 之後使用tunnel的方式導向連線端  
+
+
+建立PV  
+```
+tee pv.yaml <<EOF
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 172.18.19.238
+    path: "/home/ubuntu/nfsshare"
+  mountOptions:
+    - nfsvers=4.2
+EOF
+```
+
+
+建立PVC  
+```
+tee pv.yaml <<EOF
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: nfs
+EOF
+```

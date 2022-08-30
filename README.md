@@ -188,6 +188,11 @@ helm install k10 kasten/k10 --namespace=kasten-io \
 --set externalGateway.create=true  
 ```
 
+## 環境設定    
+
+### Location Profile  
+
+### Infrastructure Profiles  
 
 建立PV  
 ```
@@ -227,3 +232,116 @@ spec:
   volumeName: nfs
 EOF
 ```
+
+分別執行  
+```
+
+```
+
+
+
+
+
+
+## 測試環境建立    
+
+建立兩個命名空間  
+此兩個命名空間將會作來對比於是否具備Kanister的方式
+```
+kubectl create ns nfs-csi
+kubectl create ns vsan-csi
+kubectl label namespace nfs-csi k10/injectKanisterSidecar=true
+```
+
+根據兩個volume建立不同的部屬環境  
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-app
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        name: http
+        volumeMounts:
+        - mountPath: /data
+          name: data1
+      volumes:
+      - name: data1
+        persistentVolumeClaim:
+          claimName: demo-pvc
+```
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filebrowser-app
+  labels:
+    app: filebrowser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filebrowser
+  template:
+    metadata:
+      labels:
+        app: filebrowser
+    spec:
+      containers:
+      - name: filebrowser
+        image: hurlenko/filebrowser
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        name: http
+        volumeMounts:
+        - mountPath: /data
+          name: data1
+      volumes:
+      - name: data1
+        persistentVolumeClaim:
+          claimName: demo-pvc
+          
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: demo-pvc
+  labels:
+    app: demo
+    pvc: demo
+spec:
+  storageClassName: nvaiestorage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: filebrowser
+  labels:
+    app: filebrowser
+spec:
+  ports:
+  - port: 80
+    name: filebrowser
+    targetPort: 8080
+  selector:
+    app: filebrowser
+  type: LoadBalancer

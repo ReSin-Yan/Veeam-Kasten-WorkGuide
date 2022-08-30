@@ -28,13 +28,22 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 ```
 
-安裝MINIO
+安裝MINIO  
 ```
 sudo docker run -d -p 9000:9000 -p 9090:9090 --name minio1   -e "MINIO_ROOT_USER=kasten"   -e "MINIO_ROOT_PASSWORD=P@ssw0rd"   -v /mnt/data:/data   --restart=always  minio/minio server /data --console-address ':9090'
 ```
 
-
-
+安裝NFS  
+```
+sudo apt-get install nfs-kernel-server nfs-common
+mkdir nfsshare
+sudo chmod -R 777 /home/ubuntu/nfsshare/
+```
+編輯/etc/exports  
+```
+#新增以下
+/home/ubuntu/nfsshare/    *(rw,sync,no_root_squash,no_all_squash)
+```
 ## Kubernetes 操作及環境準備    
 
 確認Kuberentes服務  

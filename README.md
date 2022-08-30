@@ -44,6 +44,12 @@ sudo chmod -R 777 /home/ubuntu/nfsshare/
 #新增以下
 /home/ubuntu/nfsshare/    *(rw,sync,no_root_squash,no_all_squash)
 ```
+
+重啟服務  
+```
+/etc/init.d/nfs-kernel-server restart
+``` 
+
 ## Kubernetes 操作及環境準備    
 
 確認Kuberentes服務  

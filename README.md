@@ -19,6 +19,22 @@ Enter prise
   
 ## Linux Clinet 準備  
 
+安裝helm
+```
+cd
+sudo apt-get install -y curl
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+
+安裝MINIO
+```
+sudo docker run -d -p 9000:9000 -p 9090:9090 --name minio1   -e "MINIO_ROOT_USER=kasten"   -e "MINIO_ROOT_PASSWORD=P@ssw0rd"   -v /mnt/data:/data   --restart=always  minio/minio server /data --console-address ':9090'
+```
+
+
+
 ## Kubernetes 操作及環境準備    
 
 確認Kuberentes服務  
@@ -40,15 +56,6 @@ cd
 git clone https://github.com/ReSin-Yan/NTUSTCourse
 cd NTUSTCourse/Kubernetes
 kubectl apply -f gcallowroot.yaml  
-```
-
-安裝helm
-```
-cd
-sudo apt-get install -y curl
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
 ```
 
 安裝NFS sub-dir(如有Kubernetes本身已有StorageClass也建議設定)  

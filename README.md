@@ -42,6 +42,15 @@ cd NTUSTCourse/Kubernetes
 kubectl apply -f gcallowroot.yaml  
 ```
 
+安裝helm
+```
+cd
+sudo apt-get install -y curl
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+
 安裝NFS sub-dir(如有Kubernetes本身已有StorageClass也建議設定)  
 
 ```

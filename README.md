@@ -200,10 +200,10 @@ helm install k10 kasten/k10 --namespace=kasten-io \
 --set global.persistence.job.size=50Gi \
 --set global.persistence.logging.size=50Gi \
 --set externalGateway.create=true  \
---set global.persistence.storageClass=nvaiestorage \
+--set global.persistence.storageClass=wcppolicy \
 --set auth.basicAuth.enabled=true \
 --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0' \
---set externalGateway.create=true  
+--set features.vbrTkgsEnabled=true
 ```
 
 ## 環境設定    

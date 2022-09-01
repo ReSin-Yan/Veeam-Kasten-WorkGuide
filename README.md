@@ -26,6 +26,24 @@ sudo apt-get install -y curl
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
+``` 
+
+環境更新及安裝基本套件  
+```
+sudo apt-get update && sudo apt-get -y upgrade
+sudo apt-get -y install vim build-essential curl ssh
+sudo apt-get install net-tools
+```
+
+安裝Docker engine    
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+```
+
+確認安裝版本
+```
+sudo docker --version
 ```
 
 安裝MINIO  

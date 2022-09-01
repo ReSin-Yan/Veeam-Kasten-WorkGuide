@@ -193,6 +193,12 @@ Kasten備份出來的Config會放到由CSI產生的volume內(預設是20GB)，PO
 環境有L4且對外  
 
 ```
+helm repo add kasten https://charts.kasten.io/
+helm repo update
+kubectl create namespace kasten-io
+```
+
+```
 helm install k10 kasten/k10 --namespace=kasten-io \
 --set injectKanisterSidecar.enabled=true \
 --set-string injectKanisterSidecar.namespaceSelector.matchLabels.k10/injectKanisterSidecar=true \

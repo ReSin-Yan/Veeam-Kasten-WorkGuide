@@ -7,8 +7,7 @@ Kasten簡稱k10，主要功能為提供營運團隊一個方便使用、可擴�
 用來針對k8s平台的備份、復原、以及應用程序移動  
 
 
-目前授權版本分為三種  
-Free  
+目前授權版本分為  
 Enterprise Trial  
 Enter prise  
 

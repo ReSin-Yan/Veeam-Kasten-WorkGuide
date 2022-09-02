@@ -86,7 +86,7 @@ sudo cp bin/* /usr/local/bin
 export KUBECTL_VSPHERE_PASSWORD=P@ssw0rd
 kubectl vsphere login --server=10.66.99.2 --insecure-skip-tls-verify  --vsphere-username administrator@vsphere.local --tanzu-kubernetes-cluster-name  [輸入姓名]-tkc1
 kubectl vsphere login --server=10.66.99.2 --insecure-skip-tls-verify  --vsphere-username administrator@vsphere.local --tanzu-kubernetes-cluster-name  [輸入姓名]-tkc2
-kubectl config use-context [輸入姓名]
+kubectl config use-context [輸入姓名]-tkc[x]
 ```
 
 下載gcallowroot yaml(TKC需要)  

@@ -84,8 +84,8 @@ sudo cp bin/* /usr/local/bin
 登入到Taznu環境  
 ```
 export KUBECTL_VSPHERE_PASSWORD=P@ssw0rd
-kubectl vsphere login --server=172.18.17.22 --insecure-skip-tls-verify  --vsphere-username administrator@vsphere.local --tanzu-kubernetes-cluster-name  [輸入姓名]-tkc1
-kubectl vsphere login --server=172.18.17.22 --insecure-skip-tls-verify  --vsphere-username administrator@vsphere.local --tanzu-kubernetes-cluster-name  [輸入姓名]-tkc2
+kubectl vsphere login --server=10.66.99.2 --insecure-skip-tls-verify  --vsphere-username administrator@vsphere.local --tanzu-kubernetes-cluster-name  [輸入姓名]-tkc1
+kubectl vsphere login --server=10.66.99.2 --insecure-skip-tls-verify  --vsphere-username administrator@vsphere.local --tanzu-kubernetes-cluster-name  [輸入姓名]-tkc2
 kubectl config use-context [輸入姓名]
 ```
 

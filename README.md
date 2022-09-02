@@ -9,7 +9,7 @@ Kasten簡稱k10，主要功能為提供營運團隊一個方便使用、可擴�
 
 目前授權版本分為  
 Enterprise Trial  
-Enter prise  
+Enterprise  
 
 [參考網站](https://www.kasten.io/product/#k10-editions "link")  
 
@@ -91,7 +91,7 @@ kubectl config use-context [輸入姓名]-tkc[x]
 
 下載gcallowroot yaml(TKC需要)  
 ```
-sudo apt-get install git
+sudo apt-get install -y git
 cd 
 git clone https://github.com/ReSin-Yan/NTUSTCourse
 cd NTUSTCourse/Kubernetes
@@ -164,7 +164,7 @@ ldap
 POC階段建議使用basicAuth，可以自行創建帳號密碼(需要使用htpasswd創建)進行登入    
 產生htpasswd(需要預先安裝)  
 ```
-sudo apt install apache2-utils
+sudo apt install -y apache2-utils
 cd 
 mkdir htpasswd 
 cd htpasswd/

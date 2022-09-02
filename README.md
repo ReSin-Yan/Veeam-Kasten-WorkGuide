@@ -69,6 +69,12 @@ sudo vim /etc/exports
 /etc/init.d/nfs-kernel-server restart
 ``` 
 
+安裝kubectl vsphere plugin    
+```
+unzip vsphereplugin.zip
+sudo cp bin/* /usr/local/bin
+```
+
 ## Kubernetes 操作及環境準備    
 
 確認Kuberentes服務  

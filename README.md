@@ -91,6 +91,7 @@ kubectl config use-context [輸入姓名]-tkc[x]
 
 下載gcallowroot yaml(TKC需要)  
 ```
+sudo apt-get install git
 cd 
 git clone https://github.com/ReSin-Yan/NTUSTCourse
 cd NTUSTCourse/Kubernetes

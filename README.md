@@ -16,7 +16,7 @@ Enter prise
 
 ### 安裝步驟   
   
-## Linux Clinet 準備  
+## Linux Client 準備  
 
 環境更新及安裝基本套件  
 ```

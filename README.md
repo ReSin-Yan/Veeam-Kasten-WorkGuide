@@ -265,7 +265,10 @@ EOF
 ```
 
 分別執行  
-
+```
+kubectl apply -f pv.yaml
+kubectl apply -f pvc.yaml -n kasten-io
+```
 
 ## 測試環境建立    
 

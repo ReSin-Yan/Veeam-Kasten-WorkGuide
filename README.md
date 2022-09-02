@@ -248,7 +248,7 @@ EOF
 
 建立PVC  
 ```
-tee pv.yaml <<EOF
+tee pvc.yaml <<EOF
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:

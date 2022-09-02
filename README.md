@@ -280,95 +280,20 @@ kubectl label namespace nfs-csi k10/injectKanisterSidecar=true
 根據兩個volume建立不同的部屬環境  
 
 ```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-app
-  labels:
-    app: nginx
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
-        name: http
-        volumeMounts:
-        - mountPath: /data
-          name: data1
-      volumes:
-      - name: data1
-        persistentVolumeClaim:
-          claimName: demo-pvc
+cd
+git clone https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide.git
+cd Veeam-Kasten-WorkGuide/nfscsi/
+kubectl apply -f pre.yaml  -n nfs-csi
+kubectl apply -f post.yaml  -n nfs-csi
+kubectl get svc -n nfs-csi
 ```
+
 ```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: filebrowser-app
-  labels:
-    app: filebrowser
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: filebrowser
-  template:
-    metadata:
-      labels:
-        app: filebrowser
-    spec:
-      containers:
-      - name: filebrowser
-        image: hurlenko/filebrowser
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        name: http
-        volumeMounts:
-        - mountPath: /data
-          name: data1
-      volumes:
-      - name: data1
-        persistentVolumeClaim:
-          claimName: demo-pvc
-          
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: demo-pvc
-  labels:
-    app: demo
-    pvc: demo
-spec:
-  storageClassName: nvaiestorage
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: filebrowser
-  labels:
-    app: filebrowser
-spec:
-  ports:
-  - port: 80
-    name: filebrowser
-    targetPort: 8080
-  selector:
-    app: filebrowser
-  type: LoadBalancer
+cd 
+cd Veeam-Kasten-WorkGuide/vsancsi/
+kubectl apply -f pre.yaml  -n vsan-csi
+kubectl apply -f post.yaml  -n vsan-csi
+kubectl get svc -n vsan-csi
 ```
 
 

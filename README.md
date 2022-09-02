@@ -209,9 +209,9 @@ helm install k10 kasten/k10 \
 --namespace=kasten-io \
 --set injectKanisterSidecar.enabled=true \
 --set-string injectKanisterSidecar.namespaceSelector.matchLabels.k10/injectKanisterSidecar=true \
---set global.persistence.catalog.size=50Gi \
---set global.persistence.jobs.size=50Gi \
---set global.persistence.logging.size=50Gi \
+--set global.persistence.catalog.size=200Gi \
+--set global.persistence.jobs.size=200Gi \
+--set global.persistence.logging.size=200Gi \
 --set externalGateway.create=true  \
 --set global.persistence.storageClass=wcppolicy \
 --set auth.basicAuth.enabled=true \

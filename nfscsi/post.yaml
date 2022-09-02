@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyter-app
+  labels:
+    app: jupyter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jupyter
+  template:
+    metadata:
+      labels:
+        app: jupyter
+    spec:
+      containers:
+      - name: jupyter
+        image: jupyter/minimal-notebook
+        command: ["start-notebook.sh"]
+        args: ["--NotebookApp.token=''"]
+        ports:
+        - containerPort: 8888
+          protocol: TCP
+        name: http
+        volumeMounts:
+        - mountPath: /home/jovyan/data
+          name: data1
+      volumes:
+      - name: data1
+        persistentVolumeClaim:
+          claimName: demo-pvc

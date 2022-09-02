@@ -199,7 +199,8 @@ kubectl create namespace kasten-io
 ```
 
 ```
-helm install k10 kasten/k10 --namespace=kasten-io \
+helm install k10 kasten/k10 \
+--namespace=kasten-io \
 --set injectKanisterSidecar.enabled=true \
 --set-string injectKanisterSidecar.namespaceSelector.matchLabels.k10/injectKanisterSidecar=true \
 --set global.persistence.catalog.size=50Gi \
@@ -208,7 +209,7 @@ helm install k10 kasten/k10 --namespace=kasten-io \
 --set externalGateway.create=true  \
 --set global.persistence.storageClass=wcppolicy \
 --set auth.basicAuth.enabled=true \
---set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0' \
+--set auth.basicAuth.htpasswd='kasten:$apr1$UtUFc7QC$15rWGptryX75BCJ32X8Hv0' \
 --set features.vbrTkgsEnabled=true
 ```
 

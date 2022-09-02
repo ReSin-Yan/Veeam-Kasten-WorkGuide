@@ -104,8 +104,8 @@ kubectl apply -f gcallowroot.yaml
 cd 
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
-    --set nfs.server=172.18.19.226 \
-    --set nfs.path=/home/ubuntu/nfs
+    --set nfs.server=[ip] \
+    --set nfs.path=/home/ubuntu/nfsshare
 ```
 
 

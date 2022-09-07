@@ -50,6 +50,12 @@ chmod 700 get_helm.sh
 sudo docker run -d -p 9000:9000 -p 9090:9090 --name minio1   -e "MINIO_ROOT_USER=kasten"   -e "MINIO_ROOT_PASSWORD=P@ssw0rd"   -v /mnt/data:/data   --restart=always  minio/minio server /data --console-address ':9090'
 ```
 
+之後透過網頁來進行產生s3 bucket
+
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/minio01.png "img")  
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/minio02.png "img")  
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/minio03.png "img")  
+
 安裝NFS  
 ```
 sudo apt-get install nfs-kernel-server nfs-common
@@ -223,7 +229,38 @@ helm install k10 kasten/k10 \
 
 ### Location Profile  
 
-### Infrastructure Profiles  
+Location Profile目前總共支援6種模式  
+其中分為三大公有雲空間  
+以及地端三種空間NFS、S3、VBR  
+其中VBR只有支援Tanzu  
+
+新增Profile  
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/01location.png "img")  
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/02profile.png "img")  
+
+
+新增S3空間  
+使用預先準備的minio空間(LINK)  
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/03s3.png "img")  
+
+設定完成可以再minio空間看到資料夾建立  
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/03s4.png "img")  
+
+設定VBR前需要先設置vsphere Infrastructure Profiles(LINK)  
+之後依序輸入資訊  
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/05vbr.png "img")  
+
+
+
+NFS為新版本加入的功能(原先沒有VBR跟NFS Path)  
+使用NFS當作儲存空間  
+需要將使用NFS的PVC建立在安裝Kasten的Namespace  
+EX:我的安裝指令使用helm install k10 kasten/k10 --namespace=kasten-io   
+代表我安裝在Kasten-io
+所以需要將PVC建立在kasten-io上  
+
+使用以下的方式分別產生PV.yaml以及PVC.yaml  
+其中在server的IP使用前面所產生的NFS路徑及IP  
 
 建立PV  
 ```
@@ -269,6 +306,16 @@ EOF
 kubectl apply -f pv.yaml
 kubectl apply -f pvc.yaml -n kasten-io
 ```
+
+
+之後再Kasten介面輸入  
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/06nfs.png "img")  
+
+### Infrastructure Profiles  
+
+
+![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/infra-vc.png "img")  
+
 
 ## 測試環境建立    
 

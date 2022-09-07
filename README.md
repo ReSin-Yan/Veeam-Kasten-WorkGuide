@@ -240,13 +240,13 @@ Location Profile目前總共支援6種模式
 
 
 新增S3空間  
-使用預先準備的minio空間(LINK)  
+使用預先準備的minio空間([MINIO](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide#linux-client-%E6%BA%96%E5%82%99   "link")    
 ![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/03s3.png "img")  
 
 設定完成可以再minio空間看到資料夾建立  
 ![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/04s3.png "img")  
 
-設定VBR前需要先設置vsphere Infrastructure Profiles(LINK)  
+設定VBR前需要先設置vsphere Infrastructure Profiles([MINIO](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide#infrastructure-profiles   "link")    
 之後依序輸入資訊  
 ![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/05vbr.png "img")  
 

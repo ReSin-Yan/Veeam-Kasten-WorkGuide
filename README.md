@@ -246,7 +246,7 @@ Location Profile目前總共支援6種模式
 設定完成可以再minio空間看到資料夾建立  
 ![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/04s3.png "img")  
 
-設定VBR前需要先設置vsphere Infrastructure Profiles([MINIO](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide#infrastructure-profiles   "link") )   
+設定VBR前需要先設置vsphere Infrastructure Profiles([Infrastructure](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide#infrastructure-profiles   "link") )   
 之後依序輸入資訊  
 ![img](https://github.com/ReSin-Yan/Veeam-Kasten-WorkGuide/blob/main/img/05vbr.png "img")  
 

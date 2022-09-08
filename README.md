@@ -225,6 +225,13 @@ helm install k10 kasten/k10 \
 --set features.vbrTkgsEnabled=true
 ```
 
+刪除指令參考以下  
+```
+helm uninstall k10 -n kasten-io
+```
+
+
+
 ## 環境設定    
 
 ### Location Profile  

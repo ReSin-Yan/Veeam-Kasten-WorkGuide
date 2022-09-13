@@ -353,8 +353,3 @@ kubectl apply -f post.yaml  -n vsan-csi
 kubectl get svc -n vsan-csi
 ```
 
-
-### Veeam簡易介紹     
-Kasten簡稱k10，主要功能為提供營運團隊一個方便使用、可擴展性及安全的平台
-
-用來針對k8s平台的備份、復原、以及應用程序移動  

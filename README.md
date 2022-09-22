@@ -182,6 +182,12 @@ cat .htpasswd
 --set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0'
 ```
 
+
+```
+--set auth.basicAuth.enabled=true 
+--set auth.basicAuth.htpasswd='example:$apr1$qrAVXu.v$Q8YVc50vtiS8KPmiyrkld0'
+```
+
 以下參數主要為設定AirGapped的情境下，repo的位置，如果非安裝包的路徑，只需要修改[kastenrepo.veeam.com/kasten]，其他都是必須  
 ```
 --set global.airgapped.repository=kastenrepo.veeam.com/kasten 
